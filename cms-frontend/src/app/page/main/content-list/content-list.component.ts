@@ -37,15 +37,15 @@ export class ContentListComponent implements OnInit {
   onDel(id:any){
     console.log(`deledte from parent ${id}`);
 
-    // this.http.delete(`http://localhost:5000/api/images/${id}`)
-    //   .subscribe(
-    //     () => {
-    //       this.ImageItems = this.ImageItems.filter(item => item._id !== id);
-    //     },
-    //     (error) => {
-    //       console.error('Error deleting image:', error);
-    //     }
-    //   );
+    this.http.delete(`http://localhost:3000/api/delete/${id}`)
+      .subscribe(
+        () => {
+          this.ImageItems = this.ImageItems.filter(item => item._id !== id);
+        },
+        (error) => {
+          console.error('Error deleting image:', error);
+        }
+      );
     
     
   }
