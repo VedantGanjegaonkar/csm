@@ -1,0 +1,17 @@
+<p>content works!</p>
+
+<!-- <div class="image-grid">
+    <div class="image-item">
+      <img [src]="item.path" [alt]="item.filename">
+      <p>{{ item.filename }}</p>
+    </div>
+  </div> -->
+
+  <div class="image-item">
+    <img [src]="item.path" [alt]="item.filename">
+    <p>{{ item.filename }}</p>
+    <p>Size: {{ item.size | number }} bytes</p>
+    <p>Type: {{ item.mimetype }}</p>
+    <button>edit</button>
+    <button (click)="onDeletedItem()">del</button>
+  </div>

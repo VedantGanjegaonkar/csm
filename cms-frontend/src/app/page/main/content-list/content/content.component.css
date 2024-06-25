@@ -1,0 +1,19 @@
+.content-list {
+    padding: 20px;
+  }
+  
+  .image-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .image-item {
+    text-align: center;
+  }
+  
+  .image-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }

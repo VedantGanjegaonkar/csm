@@ -1,0 +1,29 @@
+<div><p>content list </p></div>
+
+<div class="content-list">
+  <h2>Image List</h2>
+  <div class="image-grid">
+    <app-content *ngFor="let item of ImageItems" [item]="item" [itemsForDel]="ImageItems" (itemDeleted)="onDel($event)"></app-content>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div class="content-list">
+    <h2>Image List</h2>
+    <div class="image-grid">
+      <div *ngFor="let item of ImageItems" class="image-item">
+        <img [src]="item.path" [alt]="item.filename">
+        <p>{{ item.filename }}</p>
+      </div>
+    </div>
+  </div> -->
