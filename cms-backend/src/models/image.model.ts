@@ -5,6 +5,7 @@ interface IImage extends Document {
   path: string;
   size: number;
   mimetype: string;
+  userId?:Schema.Types.ObjectId
 }
 
 const imageSchema = new Schema<IImage>({
@@ -12,8 +13,9 @@ const imageSchema = new Schema<IImage>({
   path: { type: String, required: true },
   size: { type: Number, required: true },
   mimetype: { type: String, required: true },
+  userId: { type: Schema.Types.ObjectId, ref: 'RegisterModel', required: false }
 });
 
-const Image = model<IImage>('Image', imageSchema);
+const Image = model<IImage>('newImages', imageSchema);
 
 export default Image;

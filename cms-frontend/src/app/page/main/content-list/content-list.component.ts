@@ -47,7 +47,7 @@ export class ContentListComponent implements OnInit {
         }
       );
     
-    
+      window.location.reload();
   }
 
 }

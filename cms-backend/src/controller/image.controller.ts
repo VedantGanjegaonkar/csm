@@ -1,9 +1,21 @@
 import { Request, Response } from 'express';
 import Image from '../models/image.model';
 
+import { AuthService } from '../service/auth.services';
+
+
+const authService = new AuthService();
+
 export const uploadImage = async (req: Request, res: Response) => {
   try {
     const { file } = req;
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+
+    const userId=await authService.getUserId(token)
+  
+    
     if (!file) {
       return res.status(400).send('No file uploaded.');
     }
@@ -13,6 +25,7 @@ export const uploadImage = async (req: Request, res: Response) => {
       path: file.path,
       size: file.size,
       mimetype: file.mimetype,
+      userId:userId
     });
 
     await image.save();
