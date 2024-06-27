@@ -9,7 +9,7 @@ import { UploadService } from './upload.servive';
 import { PageModule } from './page/page.module';
 import { ContentListComponent } from './page/main/content-list/content-list.component';
 import { AuthenticationModule } from './authentication/authentication.module';
-
+import { QuillModule } from 'ngx-quill';
 import { AuthInterceptor } from './auth.interceptor';
 
 // const appRoutes: Routes = [
@@ -28,7 +28,7 @@ import { AuthInterceptor } from './auth.interceptor';
     AuthenticationModule,
     AppRoutingModule,
     PageModule,
-    
+    QuillModule.forRoot()
     
   ],
   providers: [UploadService, {

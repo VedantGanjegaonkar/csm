@@ -5,10 +5,15 @@ import { ContentListComponent } from './page/main/content-list/content-list.comp
 import { SignupComponent } from './authentication/signup/signup.component';
 import { LoginComponent } from './authentication/login/login.component'; 
 import { AuthGuard } from './authentication/auth.guard';
+import { ArticleEditorComponent } from './page/main/article-list/article-editor/article-editor.component';
+import { ArticleListComponent } from './page/main/article-list/article-list.component';
 
 const routes: Routes = [
   { path: 'upload', component: UploadComponent },
   { path: 'home', component: ContentListComponent, canActivate: [AuthGuard] },
+
+  {path:'article',component:ArticleEditorComponent},
+  {path:'articles',component:ArticleListComponent},
 
   {path:'signup', component:SignupComponent},
   {path:'login', component:LoginComponent},

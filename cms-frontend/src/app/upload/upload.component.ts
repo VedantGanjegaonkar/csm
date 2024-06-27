@@ -25,6 +25,7 @@ export class UploadComponent {
             this.uploadProgress = event.message;
           } else if (event.imageUrl) {
             this.imageUrl = event.imageUrl;
+            alert("upoaded success")
           }
         },
         (err:any) => {

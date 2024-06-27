@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {jwtDecode} from 'jwt-decode';
 import { Observable } from 'rxjs';
 import { IUser } from '../../../cms-backend/src/models/signup.model';
 // import * as jwt from 'jsonwebtoken';
@@ -25,6 +26,30 @@ export class UserService {
     // Implement your logic to check if the user is logged in
     // For example, check if a token exists in local storage
     return !!localStorage.getItem('token');
+  }
+
+  getUserIdFromToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return null;
+    }
+
+    try {
+      const decodedToken = jwtDecode<any>(token);
+      
+      // Check if the token is expired
+      const currentTime = Date.now() / 1000;
+      if (decodedToken.exp < currentTime) {
+        // Token is expired
+        localStorage.removeItem('jwt_token');
+        return null;
+      }
+
+      return decodedToken.userId;
+    } catch (error) {
+      console.error('Error decoding token', error);
+      return null;
+    }
   }
 
   
