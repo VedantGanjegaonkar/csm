@@ -11,6 +11,7 @@ import { ContentListComponent } from './page/main/content-list/content-list.comp
 import { AuthenticationModule } from './authentication/authentication.module';
 import { QuillModule } from 'ngx-quill';
 import { AuthInterceptor } from './auth.interceptor';
+import { NavbarComponent } from './layouts/navbar/navbar.component';
 
 // const appRoutes: Routes = [
 //   // { path: '', component: UploadComponent },
@@ -21,6 +22,7 @@ import { AuthInterceptor } from './auth.interceptor';
   declarations: [
     AppComponent,
     UploadComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

@@ -61,6 +61,10 @@ export class UserService {
     }
   }
 
+  logout(): void {
+    localStorage.removeItem('token');
+  }
+
   
   updateUser(userId: number, user: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/users/`, user);
