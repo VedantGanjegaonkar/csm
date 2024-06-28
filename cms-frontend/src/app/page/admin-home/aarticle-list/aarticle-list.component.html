@@ -1,0 +1,20 @@
+<div class="article-list">
+    <h2>Articles</h2>
+    <div *ngFor="let article of articles" class="article-item">
+      <div *ngIf="editingArticle?._id !== article._id; else editForm">
+        <h3>{{ article.title }}</h3>
+        <div [innerHTML]="article.content"></div>
+        <div>
+            <button (click)="editArticle(article)">Edit</button>
+            <button (click)="deleteArticle(article._id)">Delete</button>
+        </div>
+        
+      </div>
+      <ng-template #editForm>
+        <input [(ngModel)]="editingArticle.title" placeholder="Title">
+        <quill-editor [(ngModel)]="editingArticle.content"></quill-editor>
+        <button (click)="saveEdit()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </ng-template>
+    </div>
+  </div>

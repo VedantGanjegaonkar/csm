@@ -7,6 +7,9 @@ import { ArticleListComponent } from './main/article-list/article-list.component
 import { ArticleEditorComponent } from './main/article-list/article-editor/article-editor.component';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { QuillModule } from 'ngx-quill';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AarticleListComponent } from './admin-home/aarticle-list/aarticle-list.component';
+import { AarticleEditorComponent } from './admin-home/aarticle-list/aarticle-editor/aarticle-editor.component';
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { QuillModule } from 'ngx-quill';
     ContentComponent,
     ArticleListComponent,
     ArticleEditorComponent,
-   
+    AdminHomeComponent,
+    AarticleListComponent,
+    AarticleEditorComponent,
+  
   ],
   imports: [
     CommonModule,

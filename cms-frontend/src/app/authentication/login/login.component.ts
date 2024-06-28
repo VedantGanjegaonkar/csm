@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
+    this.onSubmit()
   }
 
   onSubmit(): void {
@@ -26,7 +27,13 @@ export class LoginComponent implements OnInit {
         response => {
           console.log('Login successful:here is response', response);
           localStorage.setItem('token', response.token); // Store the token
-          this.router.navigate(['/home']); // Redirect to home page on success
+          if(this.authService.isAdmin()){
+            this.router.navigate(['/adminHome']);
+          }else{
+            this.router.navigate(['/home']); // Redirect to home page on success
+
+          }
+          
           
         },
         error => {

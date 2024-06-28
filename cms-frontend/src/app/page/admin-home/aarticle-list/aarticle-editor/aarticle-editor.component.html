@@ -1,0 +1,7 @@
+<div class="article-editor">
+    <h2>Create New Article</h2>
+    <input [(ngModel)]="title" placeholder="Article Title" class="article-title">
+    <quill-editor [(ngModel)]="content" ></quill-editor>
+    <button (click)="saveArticle()">Save Article</button>
+  </div>
+

@@ -28,6 +28,15 @@ export class UserService {
     return !!localStorage.getItem('token');
   }
 
+  isAdmin():boolean{
+    const token = localStorage.getItem('token');
+    if(!token){
+      return false;
+    }
+    const decodedToken = jwtDecode<any>(token);
+    return decodedToken.role === 'admin';
+  }
+
   getUserIdFromToken(): string | null {
     const token = localStorage.getItem('token');
     if (!token) {
