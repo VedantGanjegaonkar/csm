@@ -10,6 +10,7 @@ import { QuillModule } from 'ngx-quill';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AarticleListComponent } from './admin-home/aarticle-list/aarticle-list.component';
 import { AarticleEditorComponent } from './admin-home/aarticle-list/aarticle-editor/aarticle-editor.component';
+import { pageRoutingModule } from './page-routing.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AarticleEditorComponent } from './admin-home/aarticle-list/aarticle-edi
   imports: [
     CommonModule,
     FormsModule,
+    pageRoutingModule,
     QuillModule.forRoot()
   ],
   exports:[

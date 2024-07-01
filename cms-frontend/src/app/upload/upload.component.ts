@@ -21,11 +21,16 @@ export class UploadComponent {
     if (this.selectedFile) {
       this.uploadService.uploadFile(this.selectedFile).subscribe(
         (event: any) => {
+          
           if (event.status === 'progress') {
+
+            console.log("upoaded success from progress")
             this.uploadProgress = event.message;
+            window.alert("upoaded success from progress")
           } else if (event.imageUrl) {
+            console.log("upoaded success from imageUrl")
             this.imageUrl = event.imageUrl;
-            alert("upoaded success")
+            window.alert("upoaded success")
           }
         },
         (err:any) => {
