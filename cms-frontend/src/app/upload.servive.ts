@@ -6,7 +6,7 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadService {
-  private uploadUrl = 'https://ninety-garlics-behave.loca.lt'; // Backend endpoint for file upload
+  private uploadUrl = 'http://localhost:3000/api/upload'; // Backend endpoint for file upload
 
   constructor(private http: HttpClient) {}
 
