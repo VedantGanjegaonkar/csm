@@ -1,13 +1,12 @@
 <div class="container">
-    <h2>Image Upload</h2>
-    <input type="file" (change)="onFileSelected($event)">
-    <button (click)="onUpload()">Upload</button>
-    <div *ngIf="uploadProgress > 0">
-      <p>Upload Progress: {{ uploadProgress }}%</p>
-    </div>
-    <div *ngIf="imageUrl">
-      <p>Image URL: {{ imageUrl }}</p>
-      <img [src]="imageUrl" alt="Uploaded Image">
-    </div>
+  <h2>Image Upload</h2>
+  <input type="file" (change)="onFileSelected($event)">
+  <button (click)="onUpload()">Upload</button>
+  <div *ngIf="uploadProgress > 0">
+    <p>Upload Progress: {{ uploadProgress }}%</p>
   </div>
-  
+  <div *ngIf="imageUrl">
+    <!-- <p>Image URL: {{ imageUrl }}</p> -->
+    <img *ngIf="isImage(imageUrl)" [src]="imageUrl" alt="File Preview" style="max-width: 100%; height: auto;">
+  </div>
+</div>

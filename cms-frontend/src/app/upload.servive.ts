@@ -6,13 +6,15 @@ import { catchError, Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadService {
-  private uploadUrl = 'http://localhost:3000/api/upload'; // Backend endpoint for file upload
+  private uploadUrl = 'https://ninety-garlics-behave.loca.lt'; // Backend endpoint for file upload
 
   constructor(private http: HttpClient) {}
 
   uploadFile(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file, file.name);
+
+
 
     const headers = new HttpHeaders();
     // Add any required headers here
@@ -21,6 +23,7 @@ export class UploadService {
       headers: headers,
       reportProgress: true, // This option enables progress event reporting
     });
+
 
     return this.http.request(req).pipe(
       catchError(this.handleError)

@@ -7,34 +7,46 @@ import { UploadService } from '../upload.servive';
   styleUrls: ['./upload.component.css']
 })
 export class UploadComponent {
-  selectedFile?: File;
+  selectedFile?: any;
   uploadProgress: number = 0;
-  imageUrl: string = '';
+  imageUrl: any = '';
+  fileName!: any;
 
   constructor(private uploadService: UploadService) { }
 
-  onFileSelected(event:any) {
+  onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
+    this.fileName = this.selectedFile?.name;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageUrl = reader.result;
+    };
+
+    reader.readAsDataURL(this.selectedFile); // Corrected line
+  }
+
+  isImage(fileUrl: string | ArrayBuffer): boolean {
+    return typeof fileUrl === 'string' && fileUrl.startsWith('data:image');
   }
 
   onUpload() {
     if (this.selectedFile) {
       this.uploadService.uploadFile(this.selectedFile).subscribe(
         (event: any) => {
+          console.log(event);
           
           if (event.status === 'progress') {
-
-            console.log("upoaded success from progress")
             this.uploadProgress = event.message;
-            window.alert("upoaded success from progress")
           } else if (event.imageUrl) {
-            console.log("upoaded success from imageUrl")
             this.imageUrl = event.imageUrl;
-            window.alert("upoaded success")
           }
         },
-        (err:any) => {
+        (err: any) => {
           console.error('Upload failed', err);
+        },
+        () => {
+          alert("Uploaded Successfully");
         }
       );
     }

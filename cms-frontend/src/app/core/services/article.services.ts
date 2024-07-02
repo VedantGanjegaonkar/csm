@@ -7,7 +7,7 @@ import {jwtDecode} from 'jwt-decode';
   providedIn: 'root'
 })
 export class ArticleService {
-  private apiUrl = 'http://localhost:3000/api/articles';
+  private apiUrl = 'https://ninety-garlics-behave.loca.lt';
 
   constructor(private http: HttpClient) { }
 

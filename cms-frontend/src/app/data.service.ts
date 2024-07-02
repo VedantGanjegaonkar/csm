@@ -10,7 +10,7 @@ import { IUser } from '../../../cms-backend/src/models/signup.model';
 })
 
 export class UserService { 
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'https://ninety-garlics-behave.loca.lt';
 
   constructor(private http: HttpClient) {}
 
